@@ -1,4 +1,4 @@
-package com.question.answer;
+package com.question.answer.jsoup;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
