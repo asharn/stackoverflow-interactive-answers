@@ -1,5 +1,3 @@
 package com.question.answer.abstrct;
 
-public abstract class Foo {
-    abstract void validate() throws Error;
-}
+public class Foo {void check(){System.out.println("Foo class check method:");}}

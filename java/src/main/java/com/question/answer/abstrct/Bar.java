@@ -1,5 +1,7 @@
 package com.question.answer.abstrct;
 
-public class Bar extends Foo {
-    void  validate() throws  AssertionError  {}
+public abstract class Bar extends Foo {
+    abstract void  check();
+    void validate() {check();
+    }
 }
