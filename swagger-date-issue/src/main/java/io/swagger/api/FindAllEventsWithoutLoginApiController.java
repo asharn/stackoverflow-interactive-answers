@@ -23,6 +23,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -72,5 +73,26 @@ public class FindAllEventsWithoutLoginApiController implements FindAllEventsWith
 
         return new ResponseEntity<ModelApiResponse>(HttpStatus.NOT_IMPLEMENTED);
     }
+
+    public  void listview_refresh(){
+        ArrayList<String> list_items = new ArrayList<String>();
+
+        arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, list_items);
+
+        ContentResolver cResolver = getContentResolver();
+        Cursor smsInboxCursor = cResolver.query(Uri.parse("content://sms/inbox"),null,null,null,"date desc");
+        int indexBody = smsInboxCursor.getColumnIndex("body");
+        if (indexBody < 0 || !smsInboxCursor.moveToFirst()) return;
+        do{
+            String str = "smsInboxCursor.getString(indexBody) ;";
+
+            String[] separated = str.split(":");
+            String separate = separated[1];
+
+            str = str.replaceAll(separate, "<b>" + separate + "</b>"); //errorline
+            arrayAdapter.add(str);
+        }while (smsInboxCursor.moveToNext());
+    }
+
 
 }
