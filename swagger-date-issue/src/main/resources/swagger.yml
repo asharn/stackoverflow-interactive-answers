@@ -1,0 +1,84 @@
+openapi: 3.0.1
+info:
+  title: Swagger Events
+  description: 'This is a sample server Event server.'
+  version: 1.0.0
+servers:
+  - url: http://events.swagger.io/v2
+tags:
+  - name: events
+    description: Everything about your Events
+paths:
+  /findAllEventsWithoutLogin:
+    get:
+      tags:
+        - events
+      summary: getAllEvents
+      description: Fetch all events without login
+      operationId: getAllEvents
+      parameters:
+        - name: start_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+        - name: end_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        400:
+          description: Invalid response
+          content: {}
+    post:
+      tags:
+        - events
+      summary: getAllEvents
+      description: Fetch all events without login
+      operationId: getAllEventsWithPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - startDate
+                - endDate
+              properties:
+                startDate:
+                  type: string
+                  format: date-time
+                endDate:
+                  type: string
+                  format: date-time
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        400:
+          description: Invalid response
+          content: {}
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        response:
+          type: object
