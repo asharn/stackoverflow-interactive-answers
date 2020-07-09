@@ -31,9 +31,16 @@ public class RecursivePattern {
         System.out.println(countPairs("AxAxA"));
     }*/
 
-    public static void main(String[] args){
+   /* public static void main(String[] args){
+        *//**
+         * Given a string, compute recursively the number of times lowercase "hi" appears in the string, however do not count "hi" that have an 'x' immedately before them.
+         *
+         * countHi2("ahixhi") → 1
+         * countHi2("ahibhi") → 2
+         * countHi2("xhixhi") → 0
+         *//*
         System.out.println(countHi2("xhixhi"));
-    }
+    }*/
 
 
     public static int countHi2(String str) {
@@ -53,4 +60,23 @@ public class RecursivePattern {
         }
     }
 
+    public static void main(String[] args){
+        /**
+         *  Given a string that contains a single pair of parenthesis, compute recursively a new string made of only of the parenthesis and their contents, so "xyz(abc)123" yields "(abc)".
+         *
+         * parenBit("xyz(abc)123") → "(abc)"
+         * parenBit("x(hello)") → "(hello)"
+         * parenBit("(xy)1") → "(xy)"
+         */
+        System.out.println(parenBit("xyz(abc)123"));
+    }
+
+    public static String parenBit(String str) {
+
+        if(str.length()==0){
+            return "";
+        }
+
+        return "";
+    }
 }

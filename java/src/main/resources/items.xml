@@ -1,0 +1,40 @@
+<items>
+    <item>
+        <dataType>Number</dataType>
+        <name>Rush Hour</name>
+        <data>1</data>
+        <group>Comedy</group>
+    </item>
+    <item>
+        <dataType>Number</dataType>
+        <name>Harry Potter</name>
+        <data>2</data>
+        <group>Fiction</group>
+        <items>
+            <item>
+                <dataType>Number</dataType>
+                <name>Harry Potter1</name>
+                <data>3</data>
+                <group>Fiction</group>
+            </item>
+            <item>
+                <dataType>Number</dataType>
+                <name>Harry Potter and the Chamber of secrets</name>
+                <data>4</data>
+                <group>Fiction</group>
+            </item>
+        </items>
+    </item>
+    <item>
+        <dataType>Number</dataType>
+        <name>Men In Black</name>
+        <data>5</data>
+        <group>Action</group>
+    </item>
+    <item>
+        <dataType>Number</dataType>
+        <name>Coming to America</name>
+        <data>6</data>
+        <group>Comedy</group>
+    </item>
+</items>
