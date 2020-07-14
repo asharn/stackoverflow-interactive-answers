@@ -1,0 +1,22 @@
+[
+  [
+    {
+      "id": "1",
+      "clientId": "user"
+    },
+    {
+      "id": "2",
+      "clientId": "user"
+    }
+ ],
+  [
+    {
+      "Status": "NotCompleted",
+      "StatusId": 0
+    },
+    {
+      "Status": "Importing",
+      "StatusId": 10
+    }
+  ]
+]
