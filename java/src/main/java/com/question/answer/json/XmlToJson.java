@@ -16,9 +16,12 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Objects;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import org.apache.tomcat.util.codec.binary.StringUtils;
-import org.json.simple.JSONObject;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.json.JSONObject;
 import org.json.simple.parser.*;
 
 
@@ -121,6 +124,29 @@ public class XmlToJson {
             }
         }
         System.out.println(textBuilder);*/
+        JSONObject json;
+        String fileName= "test.json";
+        File f = new File(fileName);
+        JSONObject j = new JSONObject();
+        j.put("name", "member.getUser().getName()");
+        if (f.exists()){
+            InputStream is = new FileInputStream(fileName);
+            String jsonTxt;
+            try (Scanner scanner = new Scanner(is, StandardCharsets.UTF_8.name())) {
+                jsonTxt = scanner.useDelimiter("\\A").next();
+            }
+            json = new JSONObject(jsonTxt);
+        }else {
+            json = new JSONObject();
+        }
+        json.put(String.valueOf(Math.random()), j);
+        try (FileWriter file = new FileWriter(fileName)) {
+            file.write(json.toString());
+            file.flush();
+
+        } catch (IOException e) {
+            e.fillInStackTrace();
+        }
         int a=1;
     }
     /**
